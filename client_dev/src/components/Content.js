@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import Payment from './payment'
-import FormItem from './FormItem'
+import AddPayment from './AddPayment';
 
 class Content extends Component {
   render() {
     return (
       <div className="hello">
         <div className="left">
-            <FormItem/>
+            <AddPayment/>
         </div>
         <div className="right">
             <Payment/>
