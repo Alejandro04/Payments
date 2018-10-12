@@ -10,7 +10,9 @@ export function reducer(state = initialState, action) {
         case SHOW_PAYMENTS:
             return Object.assign({}, state, {payments: action.payload})
         case ADD_PAYMENT:
-            return Object.assign({}, state, {payments: action.payload})
+            return {
+                ...state,
+                payments: [...state.payments, action.payload]}
         default:
             return state
     }
