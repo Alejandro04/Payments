@@ -10,7 +10,7 @@ export function ShowPayments() {
         axios.get('http://localhost:3001/api/payments')
             .then((response) => {
                 dispatch( { type: SHOW_PAYMENTS, payload: response.data } ) 
-            }) 
+            }).catch(err => console.log(err))
     }   
 }
 
@@ -22,6 +22,7 @@ export function AddPayment(newPayment) {
                 data: newPayment
             }).then(response => {
                 console.log("accion")
+                ShowPayments()
                 dispatch( { type: ADD_PAYMENT, payload: response.data } ) 
             }).catch(err => console.log(err))
     }   
