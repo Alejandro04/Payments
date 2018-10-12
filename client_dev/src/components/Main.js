@@ -6,7 +6,7 @@ import Content from './Content'
 const Main = () => (
     <main>
         <Switch>
-            <Content/>
+            <Route exact path = '/' component={Content} />
         </Switch>
     </main>
 )

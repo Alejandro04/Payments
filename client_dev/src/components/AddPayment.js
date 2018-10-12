@@ -3,7 +3,7 @@ import axios from 'axios'
 
 class AddPayment extends Component {
 
-    AddMeetup(newPayment){
+    AddPayment(newPayment){
         axios.request({
             method: 'post',
             url: 'http://localhost:3001/api/payments',
@@ -20,7 +20,7 @@ class AddPayment extends Component {
             date: this.refs.date.value,
         }
 
-        this.AddMeetup(newPayment)
+        this.AddPayment(newPayment)
         e.preventDefault()
     }
 
