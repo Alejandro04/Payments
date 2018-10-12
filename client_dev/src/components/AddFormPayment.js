@@ -1,17 +1,11 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+import { connect } from 'react-redux'
+import { AddPayment } from '../actions'
 
-class AddPayment extends Component {
+class AddFormPayment extends Component {
 
-    AddPayment(newPayment){
-        axios.request({
-            method: 'post',
-            url: 'http://localhost:3001/api/payments',
-            data: newPayment
-        }).then(response => {
-            //deberia ir un tipo de alert
-            //deberia ir el array con push
-        }).catch(err => console.log(err))
+    newPayment(newPayment){
+        this.props.AddPayment(newPayment)
     }
 
     onSubmit(e){
@@ -20,7 +14,7 @@ class AddPayment extends Component {
             date: this.refs.date.value,
         }
 
-        this.AddPayment(newPayment)
+        this.newPayment(newPayment)
         e.preventDefault()
     }
 
@@ -46,4 +40,10 @@ class AddPayment extends Component {
     }
 }
 
-export default AddPayment
+function mapStateToProps(state) {
+    return {
+      payments: state.payments.payments 
+    }
+}
+  
+export default connect(mapStateToProps, { AddPayment })(AddFormPayment)

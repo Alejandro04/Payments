@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import { showPayments } from './payments'
+import { reducer } from './payments'
 
 const rootReducer = combineReducers({
-  payments: showPayments
+  payments: reducer
 });
 
 export default rootReducer;

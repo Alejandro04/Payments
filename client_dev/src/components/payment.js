@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import { connect } from 'react-redux'
-import { showPayments } from '../actions'
+import { ShowPayments } from '../actions'
 import PaymentItem from './PaymentItem'
 
 class Payment extends Component {
  
     componentWillMount(){
-        this.props.showPayments()
+        this.props.ShowPayments()
     }
 
     render(){
@@ -34,4 +33,4 @@ function mapStateToProps(state) {
     }
 }
   
-export default connect(mapStateToProps, { showPayments })(Payment)
+export default connect(mapStateToProps, { ShowPayments })(Payment)
