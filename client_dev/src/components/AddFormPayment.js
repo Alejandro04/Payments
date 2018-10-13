@@ -11,6 +11,7 @@ class AddFormPayment extends Component {
     onSubmit(e){
         const newPayment = {
             method: this.refs.method.value,
+            amount: this.refs.amount.value,
             date: this.refs.date.value,
         }
 
@@ -26,14 +27,15 @@ class AddFormPayment extends Component {
                 </h1>
                 <form onSubmit={this.onSubmit.bind(this)}>
                     <div className="input-field">
-                        <input type="text" name="method" ref="method" />
-                        <label htmlFor="method">Método de Pago</label>
+                        <input type="text" name="method" ref="method" placeholder="Método de pago" />
+                    </div>
+                    <div className="input-field">
+                        <input type="text" name="amount" ref="amount" placeholder="Monto" />
                     </div>
                     <div className="input-field">
                         <input type="date" name="date" ref="date" />
-                        <label htmlFor="date">Fecha de pago</label>
                     </div>
-                    <input type="submit" value="Save" className="btn" />
+                    <input type="submit" value="Save" className="btn-btnsave" />
                 </form>
             </div>
         )

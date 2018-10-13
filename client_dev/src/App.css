@@ -81,7 +81,6 @@
     color: #ff0076;
     cursor:pointer;
   }
-
   .rm-edit {
     float: right;
     text-transform: uppercase;
@@ -93,3 +92,14 @@
     cursor:pointer;
     margin-left: 1px;
   }
+  .btn-btnsave{
+    background: #008cff;
+    color: #F4F4F4;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  .btn-btnsave:hover{
+    background: #F4F4F4;
+    color: #008cff;
+  }
+  
