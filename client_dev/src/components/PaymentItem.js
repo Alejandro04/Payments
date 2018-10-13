@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { DeletePayment } from '../actions'
 
 class PaymentItem extends Component {
     constructor(props){
@@ -7,6 +9,11 @@ class PaymentItem extends Component {
         this.state = {
             item: props.item
         }
+        
+    }
+
+    deletePayment(id){
+        this.props.DeletePayment(id)
     }
 
     render(){
@@ -15,9 +22,17 @@ class PaymentItem extends Component {
                 <Link to = {`/payments/${this.state.item.id}`}> 
                     {this.state.item.method} | {this.state.item.date} 
                 </Link>
+                <a onClick={() => this.deletePayment(this.state.item.id)} className="rm">Delete</a>
             </li>     
         )
     }
 }
 
-export default PaymentItem
+
+function mapStateToProps(state) {
+    return {
+      payments: state.payments.payments 
+    }
+}
+  
+export default connect(mapStateToProps, { DeletePayment })(PaymentItem)

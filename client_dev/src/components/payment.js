@@ -8,6 +8,7 @@ class Payment extends Component {
     componentWillMount(){
         this.props.ShowPayments()
     }
+    
 
     render(){
         const paymentItems = this.props.payments.map((payment, i) => {

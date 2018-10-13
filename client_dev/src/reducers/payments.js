@@ -1,5 +1,5 @@
 
-import { SHOW_PAYMENTS, ADD_PAYMENT} from '../actions'
+import { SHOW_PAYMENTS, ADD_PAYMENT, DELETE_PAYMENT} from '../actions'
 
 const initialState = {
     payments: []
@@ -13,11 +13,12 @@ export function reducer(state = initialState, action) {
             return {
                 ...state,
                 payments: [...state.payments, action.payload]}
+        case DELETE_PAYMENT:
+            return Object.assign({}, state, {
+                payments: [...state.payments.filter(payments => payments.id !== action.payload)],
+              });
         default:
             return state
     }
     
 }
-
-
-//EL DETALLE ES, QUE ESTOY PASANDO AL GUARDAR UN ESTADO ANTERIOR VACIO CUANDO NO ES VACIO.

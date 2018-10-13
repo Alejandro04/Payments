@@ -3,6 +3,7 @@ import axios from 'axios'
 //type actions
 export const SHOW_PAYMENTS = 'SHOW_PAYMENTS';
 export const ADD_PAYMENT = 'ADD_PAYMENT';
+export const DELETE_PAYMENT = 'DELETE_PAYMENT';
 
 //actions
 export function ShowPayments() {   
@@ -21,9 +22,17 @@ export function AddPayment(newPayment) {
                 url: 'http://localhost:3001/api/payments',
                 data: newPayment
             }).then(response => {
-                console.log("accion")
-                ShowPayments()
                 dispatch( { type: ADD_PAYMENT, payload: response.data } ) 
             }).catch(err => console.log(err))
+    }   
+}
+
+
+export function DeletePayment(id) {   
+    return (dispatch) => {
+            axios.delete(`http://localhost:3001/api/payments/${id}`)
+            .then(response => {
+                dispatch( { type: DELETE_PAYMENT, payload: id } ) 
+            }).catch(err => console.log(err)) 
     }   
 }
