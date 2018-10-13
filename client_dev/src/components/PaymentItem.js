@@ -20,7 +20,7 @@ class PaymentItem extends Component {
         return (
             <li>         
                 <Link to = {`/payments/${this.state.item.id}`}> 
-                    {this.state.item.method} | {this.state.item.date} 
+                    {this.state.item.method} | {this.state.item.amount} Bs | {this.state.item.date}
                 </Link>
                 <a onClick={() => this.deletePayment(this.state.item.id)} className="rm">Delete</a>
             </li>     
