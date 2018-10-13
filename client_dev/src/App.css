@@ -81,3 +81,15 @@
     color: #ff0076;
     cursor:pointer;
   }
+
+  .rm-edit {
+    float: right;
+    text-transform: uppercase;
+    font-size: .8em;
+    background: #d0def9;
+    border: none;
+    padding: 5px;
+    color: #008cff;
+    cursor:pointer;
+    margin-left: 1px;
+  }
